@@ -21,16 +21,16 @@ function App() {
       <Suspense fallback={<LoaderView />}>
         <NavBar />
         <Switch>
+          <Route path="/movies/:movieId">
+            <MovieDetailsPage />
+          </Route>
+
           <Route path="/" exact>
             <HomePage />
           </Route>
 
           <Route path="/movies">
             <MoviesPage />
-          </Route>
-
-          <Route path="/movies/:movieId">
-            <MovieDetailsPage />
           </Route>
         </Switch>
       </Suspense>
