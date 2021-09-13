@@ -19,7 +19,6 @@ const Cast = lazy(() =>
 );
 
 export default function MovieDetailsPage() {
-  console.log("MovieDetailsPage");
   const history = useHistory();
   const location = useLocation();
   const { movieId } = useParams();
@@ -33,7 +32,7 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   const onGoBack = () => {
-    history.push(location?.state?.from?.location ?? "/");
+    history.push(location?.state?.from || "/");
   };
 
   const onScrollPage = () => {
@@ -79,7 +78,8 @@ export default function MovieDetailsPage() {
                     to={{
                       pathname: `${url}/cast`,
                       state: { from: location?.state?.from ?? "/" },
-                    }}>
+                    }}
+                  >
                     Cast
                   </NavLink>
                 </li>
@@ -92,7 +92,8 @@ export default function MovieDetailsPage() {
                     to={{
                       pathname: `${url}/reviews`,
                       state: { from: location?.state?.from ?? "/" },
-                    }}>
+                    }}
+                  >
                     Reviews
                   </NavLink>
                 </li>

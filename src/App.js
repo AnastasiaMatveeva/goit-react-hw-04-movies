@@ -15,6 +15,9 @@ const MoviesPage = lazy(() =>
   import("./views/MoviesPage.js" /* webpackChunkName: "movie-page" */)
 );
 
+const NotFoundPage = lazy(() =>
+  import("./views/NotFoundPage.js" /* webpackChunkName: "movie-page" */)
+);
 function App() {
   return (
     <>
@@ -31,6 +34,11 @@ function App() {
 
           <Route path="/movies">
             <MoviesPage />
+          </Route>
+
+          <Route>
+            {/* <HomePage /> */}
+            <NotFoundPage />
           </Route>
         </Switch>
       </Suspense>

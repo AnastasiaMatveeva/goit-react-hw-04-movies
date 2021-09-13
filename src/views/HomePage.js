@@ -5,14 +5,18 @@ export default function HomePage() {
   const [movieData, setMovieData] = useState(null);
 
   useEffect(() => {
+    console.log("movieData");
     fetchMoviesAPI.fetchTrending().then((data) => setMovieData(data.results));
   }, []);
 
-  return <>
-  {movieData &&
+  return (
     <>
-      <h1>Trending today</h1>
-      <MovieList movies={movieData} />
+      {movieData && (
+        <>
+          <h1>Trending today</h1>
+          <MovieList movies={movieData} />
+        </>
+      )}
     </>
-    }</>
+  );
 }
